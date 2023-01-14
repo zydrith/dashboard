@@ -25,10 +25,10 @@ const App = () => {
               >
                 <FiSettings />
               </button>
-            </TooltipComponent>
+              </TooltipComponent>
           </div>
           {activeMenu ? (
-            <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white">
+            <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white ">
               <Sidebar />
             </div>
           ) : (
@@ -36,15 +36,18 @@ const App = () => {
               <Sidebar />
             </div>
           )}
-          <div className={
-            `dark:bg-main-bg bg-main-bg min-h-screen w-full ${activeMenu ? 'md:ml-72' : 'flex-2'}`
-          }>
-            <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
+          <div
+            className={
+              activeMenu
+                ? 'dark:bg-main-dark-bg  bg-main-bg min-h-screen md:ml-72 w-full  '
+                : 'bg-main-bg dark:bg-main-dark-bg  w-full min-h-screen flex-2 '
+            }
+          >
+            <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full ">
               <Navbar />
             </div>
-          </div>
-        </div>
-        <div>
+            <div>
+              
           <Routes>
             {/* Dashboard */}
             <Route path="/" element={<Ecommerce />} />
@@ -71,6 +74,8 @@ const App = () => {
             <Route path="/pyramid" element={<Pyramid />} />
             <Route path="/stacked" element={<Stacked />} />
           </Routes>
+          </div>
+        </div>
         </div>
       </BrowserRouter>
     </div>
